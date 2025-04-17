@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    table {
+      border: none;
+      border-radius: 20px;
+      padding: 15px;
+      width: 90%;
+      max-width: 360px;
+      background: #1e293b;
+      box-shadow: 0 0 20px rgba(0, 123, 255, 0.6), 0 0 40px rgba(0, 123, 255, 0.3);
+    }
+
+    th#display {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #000;
+      font-size: 24px;
+      text-align: right;
+      height: 50px;
+      padding: 10px;
+      border-radius: 10px;
+      font-weight: bold;
+      overflow: hidden;
+    }
+
+    td {
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-size: 20px;
+      color: white;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #2c3e50, #34495e);
+      box-shadow: inset -2px -2px 5px #1c1f26, inset 2px 2px 5px #3a3f4b;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    td:hover {
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    td:active {
+      transform: scale(0.97);
+    }
+
+    td#ac-btn {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: #fff;
+      font-weight: bold;
+    }
+
+    td#ac-btn:hover {
+      background: linear-gradient(to right, #ff6a5b, #ff9966);
+      color: #000;
+    }
+
+    td.equal {
+      background: linear-gradient(to right, #36d1dc, #5b86e5);
+      color: black;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 500px) {
+      td {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+      }
+
+      th#display {
+        font-size: 20px;
+        height: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <table cellpadding="6" cellspacing="6">
+    <tr>
+      <th colspan="4" id="display"></th>
+    </tr>
+
+    <tr>
+      <td onclick="toggleSciMenu()">☰</td>
+      <td onclick="cal('(')">(</td>
+      <td onclick="cal(')')">)</td>
+      <td id="ac-btn" onclick="All()">AC</td>
+    </tr>
+
+    <tr id="sci-tools" style="display: none;">
+      <td onclick="sqrt()">√</td>
+      <td onclick="square()">x²</td>
+      <td onclick="cube()">x³</td>
+      <td onclick="reciprocal()">1/x</td>
+    </tr>
+    <tr id="sci-tools-2" style="display: none;">
+      <td onclick="signToggle()">±</td>
+      <td colspan="2" onclick="cal('.')">.</td>
+      <td onclick="del()">DEL</td>
+    </tr>
+
+    <tr>
+      <td onclick="cal('7')">7</td>
+      <td onclick="cal('8')">8</td>
+      <td onclick="cal('9')">9</td>
+      <td onclick="cal('/')">÷</td>
+    </tr>
+    <tr>
+      <td onclick="cal('4')">4</td>
+      <td onclick="cal('5')">5</td>
+      <td onclick="cal('6')">6</td>
+      <td onclick="cal('*')">×</td>
+    </tr>
+    <tr>
+      <td onclick="cal('1')">1</td>
+      <td onclick="cal('2')">2</td>
+      <td onclick="cal('3')">3</td>
+      <td onclick="cal('-')">−</td>
+    </tr>
+    <tr>
+      <td onclick="cal('0')">0</td>
+      <td onclick="cal('00')">00</td>
+      <td onclick="result()" class="equal">=</td>
+      <td onclick="cal('+')">+</td>
+    </tr>
+  </table>
+<script src="index.js"></script>
+</body>
+</html>
